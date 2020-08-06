@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_STRIPE_PUBLIC_KEY": "put_your_stripe_public_key_here",
+      "NEXT_PUBLIC_GRAPHQL_API_ENDPOINT": "put_your_hosted_graphql_api_endpoint_here/shop/graphql"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "pick-bazar",
+  "version": "3.0.3",
+  "private": true,
+  "author": "RedQ, Inc.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna clean --yes && rimraf node_modules",
+    "clean:build": "lerna exec -- rimraf \"{.next,dist,build}\"",
+    "dev:shop": "lerna run --parallel shop-dev",
+    "build:shop": "yarn workspace @pick-bazar/shop build",
+    "serve:shop": "lerna run --parallel start",
+    "dev:admin": "concurrently \"yarn workspace @pick-bazar/admin dev\" \"yarn workspace @pick-bazar/api admin\"",
+    "build:admin": "yarn workspace @pick-bazar/admin build",
+    "serve:admin": "lerna run --parallel serve",
+    "dev:api-shop": "yarn workspace @pick-bazar/api shop-dev",
+    "dev:api-admin": "yarn workspace @pick-bazar/api admin",
+    "build:api": "yarn workspace @pick-bazar/api build"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.0",
+    "lint-staged": "^10.2.7",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,css}": [
+      "prettier --trailing-comma es5 --single-quote --write"
+    ]
+  }
+}

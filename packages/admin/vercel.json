@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "your_graphql_api_endpoint_here"
+    }
+  }
+}
